@@ -1,5 +1,15 @@
 package main
 
+import (
+	"time"
+
+	"github.com/erbatax/pokedex_go/internal/pokeapi"
+)
+
 func main() {
-	startRepl()
+	pokeClient := pokeapi.NewClient(5 * time.Second)
+	config := &config{
+		pokeapiClient: pokeClient,
+	}
+	startRepl(config)
 }
