@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-func commandMapForward(config *config) error {
-	mapArea, err := config.pokeapiClient.ListLocations(config.nextLocationsUrl)
+func commandMapForward(config *config, _ ...string) error {
+	mapArea, err := config.pokeapiClient.GetLocationAreaList(config.nextLocationsUrl)
 	if err != nil {
 		return err
 	}
@@ -19,8 +19,8 @@ func commandMapForward(config *config) error {
 	return nil
 }
 
-func commandMapBack(config *config) error {
-	mapArea, err := config.pokeapiClient.ListLocations(config.prevLocationsUrl)
+func commandMapBack(config *config, _ ...string) error {
+	mapArea, err := config.pokeapiClient.GetLocationAreaList(config.prevLocationsUrl)
 	if err != nil {
 		return err
 	}
